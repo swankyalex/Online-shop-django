@@ -1,0 +1,45 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+
+name: Python application
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.9]
+        pipenv-version: [2022.9.8]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - name: Install pipenv ${{ matrix.poetry-version }}
+      run: |
+        python -m ensurepip
+        python -m pip install --upgrade pip
+        python -m pip install pipenv==${{ matrix.pipenv-version }}
+        
+    - name: View pipenv --help
+      run: pipenv --help
+    - name: Install dependencies
+      shell: bash
+      run: python -m pipenv install
+      
+    - name: Lint with flake8
+      run: |
+        python -m pipenv run flake8 src
+
