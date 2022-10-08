@@ -6,3 +6,6 @@ idea
 src/models
 models
 db.sqlite3
+
+# Ignore dynaconf secret files
+.secrets.*
