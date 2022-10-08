@@ -5,3 +5,4 @@ __pycache__
 idea
 src/models
 models
+db.sqlite3
