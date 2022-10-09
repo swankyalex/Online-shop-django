@@ -10,6 +10,8 @@ isort = "*"
 flake8 = "*"
 django = "~=3.2"
 dynaconf = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

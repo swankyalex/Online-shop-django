@@ -1,5 +1,7 @@
+import os
 from pathlib import Path
 
+import dj_database_url
 from dynaconf import settings as _ds
 
 _this_file = Path(__file__).resolve()
@@ -25,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "applications.generator.apps.GeneratorConfig",
 ]
 
 MIDDLEWARE = [
@@ -42,7 +45,7 @@ ROOT_URLCONF = "password_generator.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [DIR_PROJECT / "templates", DIR_SRC / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -57,12 +60,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "password_generator.wsgi.application"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+DATABASE_URL = os.getenv("DATABASE_URL", _ds.DATABASE_URL)
+
+DATABASES = {"default": dj_database_url.parse(DATABASE_URL)}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
