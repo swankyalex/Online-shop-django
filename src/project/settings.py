@@ -40,7 +40,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "password_generator.urls"
+ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
     {
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "password_generator.wsgi.application"
+WSGI_APPLICATION = "project.wsgi.application"
 
 DATABASE_URL = os.getenv("DATABASE_URL", _ds.DATABASE_URL)
 
