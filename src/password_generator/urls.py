@@ -1,9 +1,8 @@
+from django.contrib import admin
+from django.urls import include
 from django.urls import path
 
-from applications.generator import views
-
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("password/", views.password, name="password"),
-    path("about/", views.about, name="about"),
+    path("admin/", admin.site.urls),
+    path("generator/", include("applications.generator.urls")),
 ]

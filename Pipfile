@@ -8,12 +8,12 @@ ipython = "*"
 black = "*"
 isort = "*"
 flake8 = "*"
-django = "~=3.2"
 dynaconf = "*"
 dj-database-url = "*"
 psycopg2-binary = "*"
+django = "==3.2.16"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
