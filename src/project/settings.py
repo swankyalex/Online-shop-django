@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 import dj_database_url
@@ -8,8 +9,7 @@ _this_file = Path(__file__).resolve()
 DIR_PROJECT = _this_file.parent.resolve()
 DIR_SRC = DIR_PROJECT.parent.resolve()
 DIR_REPO = DIR_SRC.parent.resolve()
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+sys.path.append(os.path.join(DIR_SRC, "applications"))
 SECRET_KEY = _ds.SECRET_KEY
 
 DEBUG = _ds.MODE_DEBUG
@@ -20,6 +20,8 @@ ALLOWED_HOSTS = [
     _ds.HOST,
 ]
 
+PROJECT_APPS = ["generator", "products"]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -27,7 +29,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "applications.generator.apps.GeneratorConfig",
+    *PROJECT_APPS,
 ]
 
 MIDDLEWARE = [
@@ -90,5 +92,9 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    DIR_SRC / "static",
+]
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
