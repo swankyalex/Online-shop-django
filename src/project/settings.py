@@ -10,6 +10,7 @@ DIR_PROJECT = _this_file.parent.resolve()
 DIR_SRC = DIR_PROJECT.parent.resolve()
 DIR_REPO = DIR_SRC.parent.resolve()
 sys.path.append(os.path.join(DIR_SRC, "applications"))
+
 SECRET_KEY = _ds.SECRET_KEY
 
 DEBUG = _ds.MODE_DEBUG
@@ -20,7 +21,10 @@ ALLOWED_HOSTS = [
     _ds.HOST,
 ]
 
-PROJECT_APPS = ["generator", "products"]
+PROJECT_APPS = [
+    "generator",
+    "products",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -29,6 +33,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     *PROJECT_APPS,
 ]
 
