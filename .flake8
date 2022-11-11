@@ -6,3 +6,4 @@ exclude =
     .venv
     __pycache__
 max-line-length = 91
+ignore = F401, E501
