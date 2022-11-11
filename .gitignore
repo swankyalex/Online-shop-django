@@ -4,6 +4,7 @@ __pycache__
 .idea
 idea
 src/models
+src/products_images
 models
 db.sqlite3
 
