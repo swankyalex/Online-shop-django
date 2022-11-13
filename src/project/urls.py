@@ -7,7 +7,8 @@ from django.urls import path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("generator/", include("generator.urls")),
-    path("", include("products.urls")),
+    path("", include("products.urls", namespace="products")),
+    path("users/", include("users.urls", namespace="users")),
 ]
 
 if settings.DEBUG:

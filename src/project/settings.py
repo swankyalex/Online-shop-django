@@ -21,10 +21,7 @@ ALLOWED_HOSTS = [
     _ds.HOST,
 ]
 
-PROJECT_APPS = [
-    "generator",
-    "products",
-]
+PROJECT_APPS = ["generator", "products", "users"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -85,7 +82,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ru-ru"
 
 TIME_ZONE = "UTC"
 
@@ -104,3 +101,5 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = DIR_SRC / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "users.User"
