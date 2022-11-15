@@ -3,8 +3,8 @@
 {% block css %}
     <link href="{% static 'vendor/css/profile.css' %}" rel="stylesheet">
 {% endblock %}
-
 {% block content %}
+{% if request.user.id == user.id or request.user.is_superuser %}
 <div class="container">
     <div class="row">
         <div class="col-lg-7">
@@ -61,4 +61,14 @@
         </div>
     </div>
 </div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+            <h4 class="mt-3 mb-3">Нет доступа</h4>
+        </div>
+    </div>
+</div>
+
+{% endif %}
 {% endblock %}
