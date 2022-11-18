@@ -24,11 +24,12 @@ ALLOWED_HOSTS = [
 DOMAIN_NAME = _ds.DOMAIN_NAME
 
 PROJECT_APPS = ["generator", "products", "users"]
-THIRD_PARTY_APPS = ['allauth',
-                    'allauth.account',
-                    'allauth.socialaccount',
-                    'allauth.socialaccount.providers.github',
-                    ]
+THIRD_PARTY_APPS = [
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -123,17 +124,17 @@ EMAIL_HOST_PASSWORD = _ds.EMAIL_HOST_PASSWORD
 EMAIL_USE_SSL = True
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 SITE_ID = 1
 
 
 SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': [
-            'user',
+    "github": {
+        "SCOPE": [
+            "user",
         ],
     }
 }
