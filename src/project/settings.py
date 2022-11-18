@@ -24,12 +24,15 @@ ALLOWED_HOSTS = [
 DOMAIN_NAME = _ds.DOMAIN_NAME
 
 PROJECT_APPS = ["generator", "products", "users"]
+
 THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
+    "debug_toolbar",
 ]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -73,10 +77,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
+    _ds.HOST,
+]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": _ds.REDIS,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
 DATABASE_URL = os.getenv("DATABASE_URL", _ds.DATABASE_URL)
 
 DATABASES = {"default": dj_database_url.parse(DATABASE_URL)}
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -131,7 +150,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-
 SOCIALACCOUNT_PROVIDERS = {
     "github": {
         "SCOPE": [
@@ -139,3 +157,6 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+CELERY_BROKER_URL = _ds.CELERY_BROKER
+CELERY_RESULT_BACKEND = _ds.CELERY_BROKER

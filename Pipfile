@@ -5,17 +5,20 @@ name = "pypi"
 
 [packages]
 ipython = "*"
-black = "*"
-isort = "*"
-flake8 = "*"
 dynaconf = "*"
 dj-database-url = "*"
 psycopg2-binary = "*"
 django = "==3.2.16"
 pillow = "*"
 django-allauth = "*"
+django-redis = "*"
+celery = {extras = ["redis"], version = "*"}
 
 [dev-packages]
+django-debug-toolbar = "*"
+black = "*"
+isort = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.10"

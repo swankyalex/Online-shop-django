@@ -24,6 +24,8 @@ default:
   VENV_SYNTHETIC: false
   WEB_CONCURRENCY: 0
   EMAIL_HOST_PASSWORD: ''
+  REDIS: "redis://127.0.0.1:6379/1"
+  CELERY_BROKER: "redis://127.0.0.1:6379"
 
 development:
   HOST: "*"

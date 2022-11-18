@@ -42,7 +42,7 @@ jobs:
       run: pipenv --help
     - name: Install dependencies
       shell: bash
-      run: python -m pipenv install
+      run: make venv-dev
       
     - name: Lint with flake8
       run: |
