@@ -97,7 +97,6 @@ DATABASE_URL = os.getenv("DATABASE_URL", _ds.DATABASE_URL)
 
 DATABASES = {"default": dj_database_url.parse(DATABASE_URL)}
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -151,7 +150,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-
 SOCIALACCOUNT_PROVIDERS = {
     "github": {
         "SCOPE": [
@@ -159,3 +157,6 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+CELERY_BROKER_URL = _ds.CELERY_BROKER
+CELERY_RESULT_BACKEND = _ds.CELERY_BROKER

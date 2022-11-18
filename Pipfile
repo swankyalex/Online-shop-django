@@ -12,6 +12,7 @@ django = "==3.2.16"
 pillow = "*"
 django-allauth = "*"
 django-redis = "*"
+celery = {extras = ["redis"], version = "*"}
 
 [dev-packages]
 django-debug-toolbar = "*"

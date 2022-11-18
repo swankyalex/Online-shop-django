@@ -73,3 +73,12 @@ migrate:
 test:
 	$(call log, running tests)
 	$(PYTHON) src/manage.py test src
+
+
+.PHONY: celery
+celery:
+	$(call log, running celery)
+	$(RUN) celery --workdir=$(DIR_SRC) -A project worker --loglevel=INFO
+
+
+
