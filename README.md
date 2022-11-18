@@ -1,5 +1,7 @@
 ### Online Shop
 
+![CMake](https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white)
+
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Lines of code](https://img.shields.io/tokei/lines/github/swankyalex/Online-shop-django)](https://github.com/swankyalex/Online-shop-django/tree/master)
 [![main](https://github.com/swankyalex/Online-shop-django/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/swankyalex/Online-shop-django/actions)
