@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 django = "==3.2.16"
 pillow = "*"
 django-allauth = "*"
+django-redis = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
