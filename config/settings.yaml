@@ -1,6 +1,6 @@
 default:
   ALLOWED_HOSTS: []
-  DATABASE_URL: ""
+  DATABASE_URL: "sqlite:///src"
   DIRS_EXCLUDED:
     - .idea
     - .pytest_cache
