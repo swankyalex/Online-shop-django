@@ -9,27 +9,18 @@ format:
 	$(RUN) flake8 "$(DIR_SRC)"
 	$(call log, All good!)
 
-.PHONY: mypy
-mypy:
-	$(call log, mypy is running)
-	$(RUN) mypy "$(DIR_SRC)" noxfile.py
-	$(call log, All good!)
-
-
-.PHONY: format-full
-format-full: format mypy
-	$(call log, code formatted)
-
 
 .PHONY: run
 run:
 	$(call log, starting local web server)
 	$(PYTHON) src/manage.py runserver
 
+
 .PHONY: run-prod
 run-prod:
 	$(call log, starting local web server)
 	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" project.wsgi:application
+
 
 .PHONY: sh
 sh:
@@ -76,3 +67,9 @@ migrations:
 migrate:
 	$(call log, applying migrations)
 	$(PYTHON) src/manage.py migrate
+
+
+.PHONY: test
+test:
+	$(call log, running tests)
+	$(PYTHON) src/manage.py test src

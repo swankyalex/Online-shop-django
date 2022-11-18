@@ -1,6 +1,6 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 
-name: Python application
+name: Tests
 
 on:
   push:
@@ -9,6 +9,9 @@ on:
     - '*'
   pull_request:
     branches: [ master ]
+
+env:
+  ENV_FOR_DYNACONF: ci
 
 permissions:
   contents: read
@@ -25,7 +28,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.9
+    - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
@@ -44,4 +47,7 @@ jobs:
     - name: Lint with flake8
       run: |
         python -m pipenv run flake8 src
-
+    
+    - name: Testing
+      run: |
+        make test
