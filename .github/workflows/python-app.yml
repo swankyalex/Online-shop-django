@@ -46,6 +46,6 @@ jobs:
         python -m pipenv run flake8 src
     
 
-    - name: testint
+    - name: Running Tests
       run: |
         make test
