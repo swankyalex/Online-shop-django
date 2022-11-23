@@ -32,6 +32,7 @@
 - Github authorization for users;
 - Tests for all applications;
 - Celery with Redis for delayed tasks
+- Stripe payments connected
 
 ## Usage
 1. Clone this repository to your machine.
