@@ -23,7 +23,7 @@ ALLOWED_HOSTS = [
 
 DOMAIN_NAME = _ds.DOMAIN_NAME
 
-PROJECT_APPS = ["generator", "products", "users"]
+PROJECT_APPS = ["generator", "products", "users", "orders"]
 
 THIRD_PARTY_APPS = [
     "allauth",
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django.contrib.humanize",
     *PROJECT_APPS,
     *THIRD_PARTY_APPS,
 ]
@@ -160,3 +161,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 CELERY_BROKER_URL = _ds.CELERY_BROKER
 CELERY_RESULT_BACKEND = _ds.CELERY_BROKER
+
+STRIPE_PUBLIC_KEY = _ds.STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY = _ds.STRIPE_SECRET_KEY
+STRIPE_WEBHOOK_SECRET = _ds.STRIPE_WEBHOOK_SECRET

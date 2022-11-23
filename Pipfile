@@ -13,6 +13,7 @@ pillow = "*"
 django-allauth = "*"
 django-redis = "*"
 celery = {extras = ["redis"], version = "*"}
+stripe = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
