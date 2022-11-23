@@ -7,6 +7,6 @@ src/models
 src/media
 models
 db.sqlite3
-
+.static
 # Ignore dynaconf secret files
 .secrets.*

@@ -74,7 +74,7 @@ class OrderCreateView(TitleMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.initiator = self.request.user
-        return super(OrderCreateView, self).form_valid(form)
+        return super().form_valid(form)
 
 
 @csrf_exempt
@@ -106,7 +106,6 @@ def stripe_webhook_view(request):
 
 
 def fulfill_order(session):
-    # TODO: fill me in
     order_id = int(session.metadata.order_id)
     order = Order.objects.get(id=order_id)
     order.update_after_payment()

@@ -1,0 +1,53 @@
+version: '3.9'
+services:
+
+  redis:
+    image: redis:latest
+    ports:
+      - '6380:6379'
+
+  db:
+    container_name: store-db
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: store-db
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+    ports:
+      - 5555:5432
+
+  web:
+    build: ./
+    ports:
+      - "8000:8000"
+    entrypoint: [make, wait-for-db, migrate, static, run-prod]
+    environment:
+      ENV_FOR_DYNACONF: docker
+    volumes:
+      - web:/store-db
+    depends_on:
+      - db
+      - redis
+
+
+  celery:
+    restart: always
+    build:
+      context: .
+    command: make celery
+    environment:
+      ENV_FOR_DYNACONF: docker
+    volumes:
+      - web:/store-db
+    depends_on:
+      - web
+
+
+
+volumes:
+  web:
+  postgres_data:
