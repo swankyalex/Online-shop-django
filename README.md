@@ -15,11 +15,11 @@
 [![python](https://img.shields.io/github/pipenv/locked/python-version/swankyalex/Online-shop-django)](https://www.python.org/)
 [![dynaconf](https://img.shields.io/github/pipenv/locked/dependency-version/swankyalex/Online-shop-django/dynaconf)](https://www.dynaconf.com/)
 [![postgresql](https://img.shields.io/badge/PostgreSQL-15.1-blue)](https://postgresql.org)
-
+<br>
 [![django](https://img.shields.io/github/pipenv/locked/dependency-version/swankyalex/Online-shop-django/django)](https://www.djangoproject.com/)
 [![celery](https://img.shields.io/github/pipenv/locked/dependency-version/swankyalex/Online-shop-django/celery)](https://docs.celeryq.dev/en/stable/)
 [![redis](https://img.shields.io/github/pipenv/locked/dependency-version/swankyalex/Online-shop-django/django-redis)](https://redis.io/)
-
+<br>
 [![code size](https://img.shields.io/github/languages/code-size/swankyalex/Online-shop-django)](./)
 [![repo size](https://img.shields.io/github/repo-size/swankyalex/Online-shop-django)](./)
 
