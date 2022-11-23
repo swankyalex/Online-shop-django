@@ -15,7 +15,7 @@ default:
     - src/project/templates/
   HOST: ""
   DOMAIN_NAME: "http://127.0.0.1:8000"
-  MODE_DEBUG: true
+  MODE_DEBUG: false
   MODE_PROFILING: false
   PORT: -1
   PROJECT_NAME: ""
@@ -45,7 +45,14 @@ ci:
   DATABASE_URL: "sqlite:///src"
 
 
-heroku:
-  MODE_DEBUG: false
-  HOST: "movie-swankyaleks.herokuapp.com"
-  VENV_SYNTHETIC: true
+docker:
+  HOST: "0.0.0.0"
+  DOMAIN_NAME: "http://0.0.0.0:8000"
+  MODE_DEBUG: true
+  PORT: 8000
+  WEB_CONCURRENCY: 2
+  DATABASE_URL: "postgresql://postgres:12345678@store-db:5432/store-db"
+  GUNICORN_LOGGING : "info"
+  SECRET_KEY : "1"
+  REDIS: "redis://redis"
+  CELERY_BROKER: "redis://redis"

@@ -55,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -81,6 +82,7 @@ WSGI_APPLICATION = "project.wsgi.application"
 INTERNAL_IPS = [
     "127.0.0.1",
     "localhost",
+    "0.0.0.0",
     _ds.HOST,
 ]
 
@@ -124,9 +126,12 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
+
 STATICFILES_DIRS = [
     DIR_SRC / "static",
 ]
+
+STATIC_ROOT = DIR_REPO / ".static"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = DIR_SRC / "media"
@@ -165,3 +170,12 @@ CELERY_RESULT_BACKEND = _ds.CELERY_BROKER
 STRIPE_PUBLIC_KEY = _ds.STRIPE_PUBLIC_KEY
 STRIPE_SECRET_KEY = _ds.STRIPE_SECRET_KEY
 STRIPE_WEBHOOK_SECRET = _ds.STRIPE_WEBHOOK_SECRET
+
+#
+# def show_toolbar(request):
+#     return True
+#
+#
+# DEBUG_TOOLBAR_CONFIG = {
+#     "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+# }

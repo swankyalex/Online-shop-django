@@ -19,7 +19,7 @@ run:
 .PHONY: run-prod
 run-prod:
 	$(call log, starting local web server)
-	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" project.wsgi:application
+	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" $(WSGI_APPLICATION)
 
 
 .PHONY: sh
@@ -75,10 +75,47 @@ test:
 	$(PYTHON) src/manage.py test src
 
 
+.PHONY: load-dump
+load-dump:
+	$(call log, load dump)
+	$(PYTHON) src/manage.py loaddata src/applications/products/fixtures/categories.json
+	$(PYTHON) src/manage.py loaddata src/applications/products/fixtures/goods.json
+
+
 .PHONY: celery
 celery:
 	$(call log, running celery)
 	$(RUN) celery --workdir=$(DIR_SRC) -A project worker --loglevel=INFO
 
 
+
+.PHONY: docker
+docker:
+	docker-compose build
+
+
+.PHONY: docker-run
+docker-run:
+	docker-compose up
+
+
+.PHONY: docker-clean
+docker-clean:
+	docker-compose stop || true
+	docker-compose down || true
+	docker-compose rm --force || true
+	docker system prune --force
+
+
+.PHONY: docker-su
+docker-su:
+	$(call log, running docker)
+	docker-compose exec web poetry run python src/manage.py createsuperuser
+
+
+wait-for-db:
+	$(call log, waiting for DB up)
+	$(DIR_SCRIPTS)/wait_for_postgresql.sh \
+		$(shell $(PYTHON) $(DIR_SCRIPTS)/get_db_host.py) \
+		$(shell $(PYTHON) $(DIR_SCRIPTS)/get_db_port.py) \
 
