@@ -110,7 +110,7 @@ docker-clean:
 .PHONY: docker-su
 docker-su:
 	$(call log, running docker)
-	docker-compose exec web poetry run python src/manage.py createsuperuser
+	docker-compose exec web pipenv run python src/manage.py createsuperuser
 
 
 wait-for-db:
@@ -118,4 +118,3 @@ wait-for-db:
 	$(DIR_SCRIPTS)/wait_for_postgresql.sh \
 		$(shell $(PYTHON) $(DIR_SCRIPTS)/get_db_host.py) \
 		$(shell $(PYTHON) $(DIR_SCRIPTS)/get_db_port.py) \
-

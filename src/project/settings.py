@@ -23,7 +23,7 @@ ALLOWED_HOSTS = [
 
 DOMAIN_NAME = _ds.DOMAIN_NAME
 
-PROJECT_APPS = ["generator", "products", "users", "orders"]
+PROJECT_APPS = ["products", "users", "orders"]
 
 THIRD_PARTY_APPS = [
     "allauth",
@@ -170,12 +170,3 @@ CELERY_RESULT_BACKEND = _ds.CELERY_BROKER
 STRIPE_PUBLIC_KEY = _ds.STRIPE_PUBLIC_KEY
 STRIPE_SECRET_KEY = _ds.STRIPE_SECRET_KEY
 STRIPE_WEBHOOK_SECRET = _ds.STRIPE_WEBHOOK_SECRET
-
-#
-# def show_toolbar(request):
-#     return True
-#
-#
-# DEBUG_TOOLBAR_CONFIG = {
-#     "SHOW_TOOLBAR_CALLBACK": show_toolbar,
-# }
