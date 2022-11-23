@@ -1,6 +1,11 @@
 ### Online Shop
 
 [![Make](https://img.shields.io/badge/Make-%23008FBA.svg?style=for-the-badge&logo=gnu&logoColor=white)](https://www.gnu.org/software/make/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)&nbsp;
+[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-blue?logo=postgresql&style=for-the-badge&logoColor=white)](https://postgresql.org)&nbsp;
+[![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)](https://stripe.com/)&nbsp;
+[![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)&nbsp;
+[![Celery](https://img.shields.io/badge/celery-%2337814A.svg?&style=for-the-badge&logo=celery&logoColor=white)](https://docs.celeryq.dev/en/stable/)&nbsp;
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Lines of code](https://img.shields.io/tokei/lines/github/swankyalex/Online-shop-django)](https://github.com/swankyalex/Online-shop-django/tree/master)
