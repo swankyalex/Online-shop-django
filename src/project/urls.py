@@ -7,7 +7,6 @@ from orders.views import stripe_webhook_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("generator/", include("generator.urls")),
     path("", include("products.urls", namespace="products")),
     path("users/", include("users.urls", namespace="users")),
     path("orders/", include("orders.urls", namespace="orders")),
