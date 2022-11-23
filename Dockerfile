@@ -7,7 +7,6 @@ RUN apt install --no-install-recommends --yes \
     g++ \
     libffi-dev \
     make \
-    redis-server \
     || exit 1
     
 RUN apt clean && rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apt/archives
@@ -25,3 +24,4 @@ RUN pipenv install --dev
 COPY ./ ./
 
 RUN chmod +x ./scripts/*.sh
+
