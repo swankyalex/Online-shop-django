@@ -124,17 +124,10 @@ venv-deploy:
 	pip install pipenv
 	pipenv install --dev
 
-.PHONY: render-su
-render-su:
-	$(call log, make su)
-	$(PYTHON) src/manage.py shell -c "from users.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'Chelseafan1234')"
-
 
 .PHONY: deploy
 deploy:
 	$(call log, starting local web server)
-	$(PYTHON) src/manage.py migrate
 	make migrate
 	make static
-	make render-su
 	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" $(WSGI_APPLICATION)
