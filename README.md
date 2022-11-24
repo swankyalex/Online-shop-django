@@ -1,5 +1,7 @@
 ### Online Shop - https://swankyaleks-shop.onrender.com/
 [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/jne9.svg)](https://betteruptime.com/?utm_source=status_badge)
+<br>
+(Payments in test mode successful with card number **4242 4242 4242 4242**)
 
 [![Make](https://img.shields.io/badge/Make-%23008FBA.svg?style=for-the-badge&logo=gnu&logoColor=white)](https://www.gnu.org/software/make/)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)&nbsp;
