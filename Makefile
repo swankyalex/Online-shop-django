@@ -129,4 +129,7 @@ venv-deploy:
 deploy:
 	$(call log, starting local web server)
 	$(PYTHON) src/manage.py migrate
+	make migrate
+	make static
+	make celery
 	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" $(WSGI_APPLICATION)

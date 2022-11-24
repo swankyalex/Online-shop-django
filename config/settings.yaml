@@ -52,7 +52,7 @@ docker:
 
 deploy:
   HOST: "swankyaleks-shop.onrender.com"
-  MODE_DEBUG: true
+  MODE_DEBUG: false
   PORT: 8000
   WEB_CONCURRENCY: 2
   GUNICORN_LOGGING: "info"
