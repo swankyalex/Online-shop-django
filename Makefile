@@ -118,3 +118,15 @@ wait-for-db:
 	$(DIR_SCRIPTS)/wait_for_postgresql.sh \
 		$(shell $(PYTHON) $(DIR_SCRIPTS)/get_db_host.py) \
 		$(shell $(PYTHON) $(DIR_SCRIPTS)/get_db_port.py) \
+
+
+.PHONY: venv-deploy
+venv-deploy:
+	pip install poetry
+	make venv
+
+.PHONY: deploy
+deploy:
+	$(call log, starting local web server)
+	$(PYTHON) src/manage.py migrate
+	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" $(WSGI_APPLICATION)
