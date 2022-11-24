@@ -85,6 +85,11 @@ load-dump:
 .PHONY: celery
 celery:
 	$(call log, running celery)
+	$(RUN) celery --workdir=$(DIR_SRC) -A project worker --loglevel=INFO
+
+.PHONY: celery-deploy
+celery-deploy:
+	$(call log, running celery)
 	$(RUN) celery --workdir=$(DIR_SRC) -A project worker --loglevel=INFO >output.log 2>&1 &
 
 
@@ -130,5 +135,5 @@ deploy:
 	$(call log, starting local web server)
 	make migrate
 	make static
-	make celery
+	make celery-deploy
 	$(RUN) gunicorn --config="$(DIR_SCRIPTS)/gunicorn.conf.py" $(WSGI_APPLICATION)
