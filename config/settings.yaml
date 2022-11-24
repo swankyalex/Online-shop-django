@@ -22,7 +22,7 @@ default:
 
 development:
   GUNICORN_LOGGING : "debug"
-  HOST: ""
+  HOST: "*"
   PORT: 8000
   WEB_CONCURRENCY: 2
   SECRET_KEY: "1"
@@ -48,3 +48,13 @@ docker:
   SECRET_KEY : "1"
   REDIS: "redis://redis"
   CELERY_BROKER: "redis://redis"
+
+
+  deploy:
+    HOST: "swankyaleks-shop.onrender.com"
+    MODE_DEBUG: true
+    PORT: 8000
+    WEB_CONCURRENCY: 2
+    GUNICORN_LOGGING: "info"
+    SECRET_KEY: "1"
+    VENV_SYNTHETIC: true
