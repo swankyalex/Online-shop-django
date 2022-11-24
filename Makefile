@@ -122,7 +122,7 @@ wait-for-db:
 
 .PHONY: venv-deploy
 venv-deploy:
-	pip install pipenv
+	pip install pipenv --dev
 	pipenv install
 
 .PHONY: deploy
