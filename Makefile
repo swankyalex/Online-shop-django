@@ -122,8 +122,8 @@ wait-for-db:
 
 .PHONY: venv-deploy
 venv-deploy:
-	pip install poetry
-	make venv
+	pip install pipenv
+	pipenv install
 
 .PHONY: deploy
 deploy:
