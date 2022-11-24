@@ -57,4 +57,4 @@ deploy:
   WEB_CONCURRENCY: 2
   GUNICORN_LOGGING: "info"
   SECRET_KEY: "1"
-  VENV_SYNTHETIC: true
+  VENV_SYNTHETIC: false
