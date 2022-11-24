@@ -31,6 +31,8 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     "debug_toolbar",
+    "cloudinary_storage",
+    "cloudinary",
 ]
 
 INSTALLED_APPS = [
@@ -132,6 +134,14 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = DIR_REPO / ".static"
+
+if not DEBUG:
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
+
+if not DEBUG:
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = DIR_SRC / "media"
