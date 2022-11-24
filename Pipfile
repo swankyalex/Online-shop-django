@@ -16,6 +16,8 @@ celery = {extras = ["redis"], version = "*"}
 stripe = "*"
 whitenoise = "*"
 gunicorn = "*"
+cloudinary = "*"
+dj3-cloudinary-storage = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
